@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Jaya First WebPage</title>
+    <style type="text/css">
+        .paragraph {
+            display: none;
+        }
+        .show_link {
+            color: aqua;
+        }
+        .active {
+            display: block;
+        }
+        .inactive {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+<a href="#p1" class = "show_link">show p1</a>
+<a href="#p2" class = "show_link">show p2</a>
+<a href="#p3" class = "show_link">show p3</a>
+<a href="#p4" class = "show_link">show p4</a>
+<a href="#p5" class = "show_link">show p5</a>
+
+
+
+<p class = "paragraph" id="p1" > This is a sample text</p>
+<p class = "paragraph" id="p2" > This is a sample text jaya</p>
+<p class = "paragraph" id="p3" > This is a sample text madhu</p>
+<p class = "paragraph" id="p4" > This is a sample text isha </p>
+<p class = "paragraph" id="p5" > This is a sample text vicks</p>
+
+<script>
+    // remove all the display blocks from showing
+    // listen for clicks
+    document.addEventListener('click', function (event) {
+        var close = document.querySelectorAll('.paragraph');
+        console.log(close.length);
+        for (var i = 0 ; i < close.length; i++) {
+            close[i].classList.remove("active");
+            console.log(close[i]);
+        }
+
+        console.log(event);
+        // Only run if its show_link
+        if(!event.target.classList.contains("show_link")) return;
+
+        // allow the paragraph to show
+        var content = document.querySelector(event.target.hash);
+        if(!content) return;
+        console.log(content);
+        content.classList.toggle("active");
+
+    }, false);
+</script>
+
+</body>
+</html>
